@@ -1,4 +1,3 @@
 .vscode
-.glb
-.exe
-.obj
+.models
+OpenGL Setup.exe
