@@ -31,7 +31,7 @@ void Model::processNode(aiNode *node, const aiScene *scene) {
     }
 }
 
-Mesh processMesh(aiMesh, const aiScene *scene) {
+Mesh Model::processMesh(aiMesh, const aiScene *scene) {
     vector<Vertex> vertices;
     vector<unsigned int> indices;
     vector<Texture> textures;
@@ -81,7 +81,7 @@ Mesh processMesh(aiMesh, const aiScene *scene) {
     return Mesh(vertices, indices, textures);
 }
 
-vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName) {
+vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName, const aiScene* scene) {
     vector<Texture> textures;
     for (unsigned int i = 0; i < mat->GetTextureCount(type); i++ ){
         aiString str;
@@ -95,6 +95,15 @@ vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type,
             }
         }
         if(!skip) {
+            if (mat->GetTexture(type, i, &str) == AI_SUCCESS) {
+                const aiTexture* embeddedTex = scene->GetEmbeddedTexture(str.C_Str());
+
+                if (embeddedTex) {
+                    std::cout << "[TextureLoader] Embedded texture found: " << str.C_Str() << std::endl;
+                } else {
+                    std::cerr << "[TextureLoader] Embedded texture NOT found for: " << str.C_Str() << std::endl;
+                }
+            }
             //if texture hasn't been loaded already, load it
              Texture texture;
             texture.id = TextureFromFile(str.C_Str(), directory);
