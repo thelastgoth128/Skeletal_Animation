@@ -13,15 +13,10 @@
 
 using namespace std;
 
-struct Texture {
-    unsigned int id;
-    string type;
-    string path; // store path of texture to compare with other textures
-};
 
 class Model {
     public:
-        Model(char *path){
+        Model(const char *path){
             loadModel(path);
         }
         void Draw(Shader &shader);
@@ -33,6 +28,6 @@ class Model {
 
         void loadModel(string path);
         void processNode(aiNode *node, const aiScene *scene);
-        Mesh processNode(aiMesh *mesh, const aiScene *scene);
+        Mesh processMesh(aiMesh *mesh, const aiScene *scene);
         vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName, const aiScene* scene);
 };
