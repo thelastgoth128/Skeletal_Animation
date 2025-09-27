@@ -116,7 +116,7 @@ int main() {
 
     // Load shaders and model
     Shader ourShader("C:/Users/HP/OneDrive/Documentos/Cyrus/Projects/Skeletal_animation/src/shaders/vertex.vs", "C:/Users/HP/OneDrive/Documentos/Cyrus/Projects/Skeletal_animation/src/shaders/fragment.fss");
-    Model ourModel("C:\\Users\\HP\\OneDrive\\Documentos\\Cyrus\\Projects\\Skeletal_animation\\src\\models\\human_character.glb");
+    Model ourModel("C:\\Users\\HP\\OneDrive\\Documentos\\Cyrus\\Projects\\Skeletal_animation\\src\\.models\\human_character.glb");
 
 
     glEnable(GL_DEPTH_TEST);
