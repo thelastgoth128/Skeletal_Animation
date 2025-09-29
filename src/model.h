@@ -12,18 +12,10 @@
 #include "shaders/shader.h"
 #include "mesh.h"
 #include "assimp_glm_helpers.h"
+#include "bone_info.h"
 
 using namespace std;
 
-struct BoneInfo
-{
-    /*id is index in finalBoneMatrices*/
-    int id;
-
-    /*offset matrix transforms vertex from model space to bone space*/
-    glm::mat4 offset;
-
-};
 
 
 class Model {
