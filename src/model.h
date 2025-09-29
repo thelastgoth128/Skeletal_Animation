@@ -24,12 +24,13 @@ class Model {
             loadModel(path);
         }
         void Draw(Shader &shader);
+        //remember to make private and add getters and setters
+        auto& GetBoneInfoMap() { return m_BoneInfoMap;}
+        int& GetBoneCount() { return m_BoneCounter; }
     private:
         map<string, BoneInfo> m_BoneInfoMap;
         int m_BoneCounter = 0;
 
-        auto& GetBoneInfoMap() { return m_BoneInfoMap;}
-        int& GetBoneCount() { return m_BoneCounter; }
         //model data
         vector<Mesh> meshes;
         string directory;
