@@ -48,8 +48,9 @@ public:
 			data.timeStamp = timeStamp;
 			m_Positions.push_back(data);
 		}
-
+		
 		m_NumRotations = channel->mNumRotationKeys;
+		cout << "m_NumRotations" << m_NumRotations << endl;
 		for (int rotationIndex = 0; rotationIndex < m_NumRotations; ++rotationIndex)
 		{
 			aiQuaternion aiOrientation = channel->mRotationKeys[rotationIndex].mValue;
@@ -97,8 +98,10 @@ public:
 
 	int GetRotationIndex(float animationTime)
 	{
+		cout << "animation Time " << animationTime << endl;
 		for (int index = 0; index < m_NumRotations - 1; ++index)
 		{
+			cout << "animation Timestamp " << m_Rotations[index + 1].timeStamp << endl;
 			if (animationTime < m_Rotations[index + 1].timeStamp)
 				return index;
 		}
@@ -148,6 +151,7 @@ private:
 			auto rotation = glm::normalize(m_Rotations[0].orientation);
 			return glm::toMat4(rotation);
 		}
+
 
 		int p0Index = GetRotationIndex(animationTime);
 		int p1Index = p0Index + 1;
