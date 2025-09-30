@@ -112,8 +112,8 @@ int main() {
 
     // Load shaders and model
     Shader ourShader("C:/Users/HP/OneDrive/Documentos/Cyrus/Projects/Skeletal_animation/src/shaders/vertex.vs", "C:/Users/HP/OneDrive/Documentos/Cyrus/Projects/Skeletal_animation/src/shaders/fragment.fss");
-    Model ourModel("C:/Users/HP/OneDrive/Documentos/Cyrus/Projects/Skeletal_animation/src/.models/dancing_vampire.dae");
-    Animation danceAnimation("C:/Users/HP/OneDrive/Documentos/Cyrus/Projects/Skeletal_animation/src/.models/dancing_vampire.dae",&ourModel);
+    Model ourModel("C:/Users/HP/OneDrive/Documentos/Cyrus/Projects/Skeletal_animation/src/.models/russian_girl_east_animated.glb");
+    Animation danceAnimation("C:/Users/HP/OneDrive/Documentos/Cyrus/Projects/Skeletal_animation/src/.models/russian_girl_east_animated.glb",&ourModel);
     Animator animator(&danceAnimation);
 
 
